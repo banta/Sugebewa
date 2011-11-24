@@ -1,0 +1,11 @@
+<%= form_for(@micropost) do |f| %>
+  <%= f.error_messages %>
+
+
+  <p>
+    <textarea id="micropost_content" class="text_area" onclick="this.className='text_area1'" rows="20" name="micropost[content]" cols="40"></textarea>
+  </p>
+  <p>
+    <%= f.submit t(:create_micropost) -%>
+  </p>
+<% end %>

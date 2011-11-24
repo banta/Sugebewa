@@ -1,0 +1,42 @@
+<% content_for :title, t(:home) -%>
+<br/><br/>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+    <td><%= image_tag @user.avatar.url(:small) %></td>
+    <td><h2><%= link_to "#{@user.name}", :controller => 'users', :action => 'show_user', :id => @user %></h2></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><img src="/images/spacer.gif" WIDTH="2" HEIGHT="100""></td>
+    <td>
+      <table>
+        <tr>
+          <td><%= link_to "#{t(:groups)}", :controller => 'groups', :action => 'my_groups' %><br/>&nbsp;&nbsp;<%=  @user.groups.count %></td>
+          <td>&nbsp;&nbsp;</td>
+          <td><%= link_to "#{t(:microposts)}", :controller => 'microposts', :action => 'user_microposts', :id => @user.id %><br/>&nbsp;&nbsp;<%=  @user.microposts.count %></td>
+          <td>&nbsp;&nbsp;</td>
+          <td><%= link_to "#{t(:following)}", :controller => 'microposts', :action => 'my_groups' -%><br/>&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+          <td><%= link_to "#{t(:followers)}", :controller => 'microposts', :action => 'my_groups' -%><br/>&nbsp;&nbsp;</td>
+        </tr>
+        
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+<br/><br/><hr/>
+<div style="border-radius: 4px 4px 4px 4px;">
+  <h2><%= t(:say_something) -%></h2>
+  <%= render 'form' %>
+  <hr/>
+
+  <div id="microposts">
+    <%= render :partial => @microposts, :locals => { :list => true } %>
+  </div>
+  <br/>
+</div>

@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: sugebewa_development
+  pool: 5
+  username: banta
+  password: denmark
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: sugebewa_test
+  pool: 5
+  username: banta
+  password: denmark
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sugebewa_production
+  pool: 5
+  username: banta
+  password: denmark

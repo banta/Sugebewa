@@ -1,0 +1,5 @@
+db/*.sqlite3
+log/*
+uploads/*
+tmp/*
+config/initializers/mailer.rb

@@ -1,0 +1,13 @@
+<div id="menu">
+  <p class="menu">
+    <% if session[:user_id] -%>
+      <%= link_to "Home", root_path %> &nbsp; &nbsp;
+      <%= link_to "Other Users", :controller => 'users', :action =>  'other_users' %> &nbsp; &nbsp;
+      <%= link_to "Other Groups", :controller => 'groups', :action =>  'index' %> &nbsp; &nbsp;
+      <%= link_to "My Groups", :controller => 'groups', :action =>  'my_groups' %> &nbsp; &nbsp;
+      <%= link_to "Profile", :controller => 'users', :action =>  'show_info' %> &nbsp; &nbsp;
+      <%= link_to "Delete My Acc", {:controller => 'users', :action =>  'destroy'}, :confirm => "Are you sure you want to delete your account?" %>
+    <% end -%>
+    &nbsp;
+  </p>
+</div>

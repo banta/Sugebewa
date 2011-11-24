@@ -1,0 +1,11 @@
+<div id="header">
+  <% if session[:user_id] -%>
+    <div class="user_welcome">
+      <p>
+        <%= t :hello %>, <%= User.find(User.find(session[:user_id]).id).name %>!<br/>
+      <%= link_to t(:settings), :controller => 'users', :action =>  'edit' %> | <%= link_to t(:sign_out), :controller => 'sessions', :action =>  'logout' %>
+    </p>
+  </div>
+<% end -%>
+<%= link_to image_tag('logo.png', :alt => 'Sugebewa'), root_path %>
+</div>

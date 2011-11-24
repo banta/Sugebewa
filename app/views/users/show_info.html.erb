@@ -1,0 +1,34 @@
+<% content_for :title, t(:profile) -%>
+
+<h1><%= content_for :title %></h1>
+<br/><br/>
+
+<p>
+  <b>Avatar:</b>
+  <%= image_tag @user.avatar.url(:thumb) %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b>My Groups:</b>
+<table style="margin-left: 120px;">
+  <% bullet = 0 %>
+  <% @groups.each do |group| %>
+    <tr>
+      <% bullet += 1 %>
+      <td><b><%= bullet %>.</b>&nbsp;<%= group.name %></td>
+    </tr>
+  <% end %>
+</table>
+</p>
+
+<br/><br/>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Home', :controller => 'microposts', :action => 'index' %>

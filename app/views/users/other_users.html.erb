@@ -1,0 +1,23 @@
+<% content_for :title, t(:other_users) -%>
+
+<h1><%= content_for :title %></h1>
+<p>
+  <span class="group_menu"><%#= image_tag('user_add.png', :alt => t(:create_a_new_user)) %> <%#= link_to t(:create_a_new_user), new_group_path %></span>
+</p>
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr class="<%= cycle('even','odd') %>">
+      <td><%= image_tag('user.png') %></td>
+       <td class="group_name"><%= link_to "#{user.name}", :action => 'show_user', :id => user %></td>
+      <td>
+        <%= link_to image_tag('follow.png', :alt => t(:follow)), edit_user_path(user), :title => t(:follow) %>&nbsp;
+      </td>
+    </tr>
+  <% end %>
+</table>

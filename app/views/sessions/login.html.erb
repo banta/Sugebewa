@@ -1,0 +1,24 @@
+<% content_for :title, t(:login) -%>
+
+<h1><%= content_for :title %></h1>
+<p>Did you receive the mail? Click <%=  link_to "here" , :controller => 'sessions', :action => 'resend_mail' %> to resend.</p>
+<%= form_tag do %>
+
+
+  <p>
+    <label> Email </label><br />
+    <%= text_field_tag :email, params[:password], { :class => 'text_input' } %>
+  </p>
+  <p>
+    <label> Password </label><br />
+    <%= password_field_tag :password, params[:password], { :class => 'text_input' } %>
+  </p>
+  <p>
+    <%= check_box_tag :remember_me, 'true', params[:password], { :class => 'text_input' } %>
+    <%= label_tag :remember_me, t(:remember_me) %>
+  </p>
+  <p>
+    <%= submit_tag t(:login) %> | <%=  link_to 'Register' , :controller => 'users', :action => 'new' %> |
+    <%=  link_to "Forgot Password" , :controller => 'sessions', :action => 'forgot_password' %>
+  </p>
+<% end %>

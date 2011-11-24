@@ -1,0 +1,14 @@
+<% content_for :title, t(:resend_mail) -%>
+
+<h1><%= content_for :title %></h1>
+
+<%= form_tag :action=>'forgot_password' do%>
+  <p>
+    <label> Email:</label><br/>
+    <%= text_field "user","email", { :class => 'text_input' } %>
+  </p>
+  <p>
+    <%= submit_tag t(:resend) %> | <%=  link_to "Register" , :controller => :users, :action => 'new'%> | <%=  link_to "Login" , :controller => 'sessions', :action => 'login' %>
+  </p>
+
+<% end %>

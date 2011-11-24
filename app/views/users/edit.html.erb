@@ -1,0 +1,33 @@
+<% content_for :title, t(:edit_user) -%>
+
+<h1><%= content_for :title %></h1>
+
+<%= form_for(@user, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= image_tag @user.avatar.url(:thumb) %>
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, { :class => 'text_input' } %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, { :class => 'text_input' } %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, { :class => 'text_input' } %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, { :class => 'text_input' } %>
+  </p>
+  <p>
+    <%= f.submit t(:update_user) %>
+  </p>
+<% end %>
+
+
+
+<%= link_to 'Show', :action => :show_info %> |
+<%= link_to 'Home', :controller => 'microposts', :action => 'index' %>

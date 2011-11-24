@@ -1,0 +1,18 @@
+<% content_for :title, t(:edit_group) -%>
+
+<h1><%= content_for :title %></h1>
+
+<%= form_for(@group) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, { :class => 'text_input' } %>
+  </p>
+  <p class="actions">
+    <%= f.submit t(:update_group)%>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @group %> |
+<%= link_to 'Back', :action => 'my_groups' %>

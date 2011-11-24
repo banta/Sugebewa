@@ -1,0 +1,9 @@
+<%= div_for micropost do %>
+  <span class="dateandoptions">
+    <%= t(:posted) -%> <%=time_ago_in_words(micropost.created_at)%> <%= t(:ago) -%><br />
+    <%= link_to t(:delete), :action =>  'destroy', :id => micropost -%>
+  </span>
+  <p><b><%= image_tag User.find_by_id(micropost.user_id).avatar.url(:smallest) %><%= link_to "#{User.find_by_id(micropost.user_id).name}", :controller => 'microposts', :action => 'user_microposts', :id => micropost.user_id %></b> <%= t(:wrote) -%></p>
+  <br />
+  <%= content_tag(:p, micropost.content, :class => "comment-body") %>
+<% end %>

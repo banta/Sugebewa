@@ -1,0 +1,35 @@
+<% content_for :title, t(:register) -%>
+
+<h1><%= content_for :title %></h1>
+
+<hr/>
+<p>Please fill in all fields.</p>
+<p>Your password must be between 6 and 40 alphanumeric characters.</p>
+<p><strong>Your email address must be valid.</strong> We will send you an email with a password.
+  Please login using that password and change it to something more memorable.</p>
+<hr/><br/>
+
+<%= form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %>:<br/>
+    <%= f.text_field :name, { :class => 'text_input' } %>
+  </p>
+
+  <p>
+    <%= f.label :email %>:<br/>
+    <%= f.text_field :email, { :class => 'text_input' } %>
+  </p>
+
+  <p>
+    <%= f.label :email_confirmation %>:<br/>
+    <%= f.text_field :email_confirmation, { :class => 'text_input' } %>
+  </p>
+
+  <p>
+    <%= f.submit t(:create_account) %> | <%=  link_to "Forgot Password" , :controller => 'sessions', :action => 'forgot_password' %> |
+    <%=  link_to "Login" , :controller => 'sessions', :action => 'login' %>
+  </p>
+
+<% end %>
